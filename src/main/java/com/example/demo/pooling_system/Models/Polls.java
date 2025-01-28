@@ -6,11 +6,16 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Poll_table")
 public class Polls {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int poll_id;
+
+    @Column(name = "title")
     private  String poll_title;
+
+    @Column(name = "description")
     private  String poll_description;
     @OneToMany(mappedBy = "poll", cascade = CascadeType.ALL ,orphanRemoval = true)
     private List<Options> options;

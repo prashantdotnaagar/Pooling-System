@@ -12,8 +12,10 @@ public class Votes {
 
     @ManyToOne
     @JoinColumn(name = "poll_id",nullable = false)
+    private Polls polls;
+
+    @ManyToOne
     @JoinColumn(name = "option_id" ,nullable = false)
-    private Polls pole;
     private Options option;
 
 
@@ -25,12 +27,12 @@ public class Votes {
         this.vote_id = vote_id;
     }
 
-    public Polls getPole() {
-        return pole;
+    public Polls getPolls() {
+        return polls;
     }
 
-    public void setPole(Polls pole) {
-        this.pole = pole;
+    public void setPolls(Polls polls) {
+        this.polls = polls;
     }
 
     public Options getOption() {
@@ -45,7 +47,7 @@ public class Votes {
     public String toString() {
         return "Votes{" +
                 "vote_id=" + vote_id +
-                ", pole=" + pole +
+                ", pole=" + polls +
                 ", option=" + option +
                 '}';
     }
