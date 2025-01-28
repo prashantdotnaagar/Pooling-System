@@ -1,6 +1,7 @@
 package com.example.demo.pooling_system.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class Polls {
 
     @Column(name = "description")
     private  String poll_description;
+    @JsonManagedReference
     @OneToMany(mappedBy = "poll", cascade = CascadeType.ALL ,orphanRemoval = true)
     private List<Options> options;
     public int getPoll_id() {

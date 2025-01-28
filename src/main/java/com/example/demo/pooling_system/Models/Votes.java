@@ -1,11 +1,9 @@
 package com.example.demo.pooling_system.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Vote_table")
 public class Votes {
     @Id
     private int vote_id;

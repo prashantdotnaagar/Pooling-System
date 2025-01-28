@@ -1,17 +1,16 @@
 package com.example.demo.pooling_system.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Option_table")
 public class Options {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int option_id;
     private String option_title;
-    private String option_description;
-
-
-
+    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name="poll_id", nullable = false)
     private Polls poll;
@@ -32,6 +31,7 @@ public class Options {
         this.option_id = option_id;
     }
 
+
     public String getOption_title() {
         return option_title;
     }
@@ -40,20 +40,11 @@ public class Options {
         this.option_title = option_title;
     }
 
-    public String getOption_description() {
-        return option_description;
-    }
-
-    public void setOption_description(String option_description) {
-        this.option_description = option_description;
-    }
-
     @Override
     public String toString() {
         return "Options{" +
                 "option_id=" + option_id +
                 ", option_title='" + option_title + '\'' +
-                ", option_description='" + option_description + '\'' +
                 ", poll=" + poll +
                 '}';
     }
