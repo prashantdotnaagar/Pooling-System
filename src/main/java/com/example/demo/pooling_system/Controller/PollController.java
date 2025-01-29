@@ -26,6 +26,7 @@ public class PollController {
 
     @GetMapping("id/{id}")
     public Optional<Polls> getPollById(@PathVariable Integer id){
+
         return pollService.findById(id);
     }
 
